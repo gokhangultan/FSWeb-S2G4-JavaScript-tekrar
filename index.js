@@ -34,10 +34,11 @@ const sayilar = [
 	2. Karenin alanını hesaplayacak (💡 İPUCU: karenin alanı = karenin kenar uzunluğunun karesi)
 	3. Hesaplanan alanı döndürecek
 */
-
+let sayi1 = 0;
+let sayi2 = 0;
 //Örneğin çözümü:
-function KareninAlani(kenaruzunlugu) {
-  return kenaruzunlugu * kenaruzunlugu;
+function KareninAlani(sayi1, sayi2) {
+  return sayi1 * sayi2;
 }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
