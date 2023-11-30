@@ -34,15 +34,17 @@ const sayilar = [
 	2. Karenin alanını hesaplayacak (💡 İPUCU: karenin alanı = karenin kenar uzunluğunun karesi)
 	3. Hesaplanan alanı döndürecek
 */
-let sayi1 = 0;
-let sayi2 = 0;
+
 //Örneğin çözümü:
-function KareninAlani(sayi1, sayi2) {
-  return sayi1 * sayi2;
+function KareninAlani(kenarUzunlugu) {
+  return kenarUzunlugu * kenarUzunlugu;
 }
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+let sayi1 = 10;
+function KareninAlani(sayi1){
+  console.log("KareninAlani");
+}
 /* GÖREV 1:  
 - CemberinCevresi fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 	1. CemberinCevresi fonksiyonu parametre olarak sadece çemberin yarıçapını alacaktır. 
@@ -51,11 +53,19 @@ function KareninAlani(sayi1, sayi2) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+
+const pi = 3.14;
+function CemberinCevresi(cemberYariCap) {
+  CemberinCevresi = 2 * pi * cemberYariCap;
+  return CemberinCevresi;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+
+let yariCap = 5;
+function CemberinCevresi(yariCap) {
+  console.log("CemberinCevresi:")
+}
 
 /* 	GÖREV 2:  
 - CemberinAlani fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
@@ -65,11 +75,17 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(cemberYariCap, pi) {
+  CemberinAlani = pi * cemberYariCap * cemberYariCap;
+  return CemberinAlani;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
+
+let yariCap2 = 15;
+function CemberinAlani(yariCap2, pi) {
+  console.log("CemberinAlani:")
+}
 
 /* 	GÖREV 3:
 	- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
@@ -99,28 +115,58 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
-
-/* kodlar buraya */
+let enkucuk = sayilar[0];
+let enbuyuk = sayilar[0];
+for (let i = 1; i < sayilar.length; i++) {
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+  if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+}
 
 // 3b çözümü:
-
-/* kodlar buraya */
+let ucetambolunenler = [];
+sayilar.forEach(function(sayi) {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
 
 // 3c çözümü:
 
-/* kodlar buraya */
+let ucebolunenlerintoplami = ucetambolunenler.reduce(function(toplam, sayi) {
+  return toplam + sayi;
+}, 0);
 
 // 3d çözümü
 
-/* kodlar buraya */
+let besyuzdenkucuksayilar = sayilar.filter(function(sayi) {
+  return sayi < 500;
+});
 
 // 3e çözümü
 
-/* kodlar buraya */
+let siralisayilar = besyuzdenkucuksayilar.sort(function(a, b) {
+  return a - b;
+});
 
 // 3f çözümü
 
-/* kodlar buraya */
+let tekraredensayilar = [];
+let tekrarSayilari = {};
+for (let i = 0; i < sayilar.length; i++) {
+  if (tekrarSayilari[sayilar[i]] === undefined) {
+    tekrarSayilari[sayilar[i]] = 1;
+  } else {
+    tekrarSayilari[sayilar[i]]++;
+  }
+}
+
+for (let sayi in tekrarSayilari) {
+  tekraredensayilar.push(`${sayi} sayısı ${tekrarSayilari[sayi]} kere tekrar edilmiştir`);
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
